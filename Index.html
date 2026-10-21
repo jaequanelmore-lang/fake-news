@@ -1,331 +1,572 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Bluffton Chronicle | Sports News</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Bluffton Chronicle | Local Sports</title>
+  <meta name="description" content="Local sports, basketball and community coverage from Bluffton, South Carolina.">
 
-<style>
-* {
-  box-sizing: border-box;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  color: #142746;
-  background: #f3f6fa;
-}
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f5f2;
+      color: #202a36;
+    }
 
-header {
-  background: #10284b;
-  color: white;
-  padding: 24px 7%;
-}
+    a {
+      color: inherit;
+    }
 
-header h1 {
-  font-family: Georgia, serif;
-  margin: 0;
-  font-size: clamp(28px, 5vw, 42px);
-}
+    .topline {
+      background: #142b48;
+      color: white;
+      padding: 9px 6%;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-size: 12px;
+    }
 
-header p {
-  margin-bottom: 0;
-  color: #cbd8ec;
-}
+    header {
+      background: white;
+      text-align: center;
+      padding: 30px 15px 25px;
+      border-bottom: 1px solid #ddd;
+    }
 
-nav {
-  background: #193c69;
-  padding: 14px 7%;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-}
+    header h1 {
+      font: bold clamp(34px, 6vw, 58px) Georgia, serif;
+      letter-spacing: -1.5px;
+      margin: 0;
+      color: #142b48;
+    }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
+    header p {
+      font-size: 11px;
+      letter-spacing: 3px;
+      margin: 10px 0 0;
+      color: #697586;
+    }
 
-nav a:hover {
-  color: #83caff;
-}
+    nav {
+      background: white;
+      border-bottom: 3px solid #142b48;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
+    }
 
-.notice {
-  background: #fff0c2;
-  color: #694b00;
-  text-align: center;
-  padding: 12px;
-  font-weight: bold;
-}
+    nav a {
+      text-decoration: none;
+      padding: 16px 18px;
+      font-size: 13px;
+      font-weight: bold;
+    }
 
-main {
-  max-width: 1150px;
-  margin: 30px auto;
-  padding: 0 20px;
-}
+    nav a:hover {
+      background: #e9edf2;
+    }
 
-.hero {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 16px #00000012;
-}
+    .ticker {
+      background: #e8edf3;
+      padding: 12px 6%;
+      font-size: 13px;
+      border-bottom: 1px solid #d5dce5;
+    }
 
-.hero img {
-  width: 100%;
-  height: 360px;
-  object-fit: cover;
-  display: block;
-}
+    .ticker strong {
+      color: #b3262d;
+      margin-right: 12px;
+    }
 
-.hero-text {
-  padding: 28px;
-}
+    main {
+      max-width: 1180px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
 
-.tag {
-  color: #0875ce;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(230px, 1fr);
+      gap: 28px;
+      align-items: start;
+    }
 
-h2 {
-  font-size: clamp(27px, 4vw, 38px);
-  margin: 12px 0;
-}
+    .article {
+      background: white;
+      padding: 28px;
+      border: 1px solid #e2e2df;
+    }
 
-.hero-text p {
-  font-size: 18px;
-  line-height: 1.7;
-}
+    .category {
+      color: #a4262d;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
 
-.label {
-  display: inline-block;
-  background: #e4edfa;
-  padding: 8px 12px;
-  border-radius: 5px;
-  font-size: 13px;
-  font-weight: bold;
-}
+    .article h2 {
+      font: bold clamp(32px, 4vw, 45px) Georgia, serif;
+      line-height: 1.12;
+      margin: 13px 0;
+      color: #142b48;
+    }
 
-.stories {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 20px;
-  margin-top: 28px;
-}
+    .dek {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #586474;
+    }
 
-.card {
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 3px 12px #0000000c;
-}
+    .byline {
+      border-top: 1px solid #e1e4e8;
+      border-bottom: 1px solid #e1e4e8;
+      padding: 13px 0;
+      margin: 20px 0;
+      font-size: 12px;
+      color: #667080;
+      line-height: 1.7;
+    }
 
-.card img {
-  width: 100%;
-  height: 175px;
-  object-fit: cover;
-  display: block;
-}
+    .hero-photo {
+      width: 100%;
+      max-height: 460px;
+      object-fit: cover;
+      display: block;
+      background: #e1e5e9;
+    }
 
-.card div {
-  padding: 18px;
-}
+    .credit {
+      font-size: 11px;
+      color: #747c87;
+      margin: 8px 0 22px;
+    }
 
-.card h3 {
-  margin-top: 0;
-}
+    .credit a {
+      color: #245c91;
+    }
 
-.card p {
-  line-height: 1.6;
-}
+    .story p {
+      font: 16px/1.85 Georgia, serif;
+      color: #303943;
+    }
 
-button {
-  background: #153b6b;
-  color: white;
-  border: 0;
-  padding: 11px 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-}
+    .story h3 {
+      font: bold 25px Georgia, serif;
+      color: #142b48;
+      margin-top: 30px;
+    }
 
-button:hover {
-  background: #2463a6;
-}
+    .sidebar h3 {
+      font: bold 23px Georgia, serif;
+      border-bottom: 3px solid #142b48;
+      padding-bottom: 12px;
+      margin-top: 0;
+    }
 
-footer {
-  background: #10284b;
-  color: white;
-  text-align: center;
-  padding: 30px 15px;
-  margin-top: 40px;
-}
+    .side-story {
+      background: white;
+      border: 1px solid #e2e2df;
+      padding: 17px;
+      margin-bottom: 16px;
+    }
 
-footer a {
-  color: #cbd8ec;
-  margin: 0 8px;
-}
+    .side-story span {
+      font-size: 10px;
+      color: #a4262d;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
 
-footer p {
-  font-size: 13px;
-  line-height: 1.6;
-}
+    .side-story h4 {
+      font: bold 20px/1.3 Georgia, serif;
+      margin: 9px 0;
+    }
 
-@media (max-width: 600px) {
-  nav {
-    gap: 15px;
-  }
+    .side-story p {
+      font-size: 13px;
+      color: #606b78;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
 
-  .hero img {
-    height: 230px;
-  }
-}
-</style>
+    .newsletter {
+      background: #142b48;
+      color: white;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .newsletter h3 {
+      border-color: #aebdd0;
+      margin-bottom: 10px;
+    }
+
+    .newsletter p {
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    button {
+      border: 0;
+      background: #a4262d;
+      color: white;
+      padding: 12px 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #7f1d23;
+    }
+
+    .more-news {
+      margin-top: 35px;
+    }
+
+    .more-news h2 {
+      font: bold 30px Georgia, serif;
+      border-bottom: 3px solid #142b48;
+      padding-bottom: 12px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e2e2df;
+    }
+
+    .card img {
+      display: block;
+      width: 100%;
+      height: 155px;
+      object-fit: cover;
+    }
+
+    .card div {
+      padding: 16px;
+    }
+
+    .card small {
+      color: #a4262d;
+      font-weight: bold;
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    .card h3 {
+      font: bold 20px/1.3 Georgia, serif;
+    }
+
+    .card p {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #626c78;
+    }
+
+    footer {
+      background: #142b48;
+      color: white;
+      padding: 35px 6%;
+      margin-top: 45px;
+      text-align: center;
+    }
+
+    footer h2 {
+      font: bold 29px Georgia, serif;
+    }
+
+    footer a {
+      display: inline-block;
+      margin: 8px;
+      color: #d5e0ed;
+      text-decoration: none;
+      font-size: 12px;
+    }
+
+    footer p {
+      color: #c0cddd;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .project-note {
+      margin: 22px auto 0;
+      max-width: 700px;
+      font-size: 10px;
+      color: #aebdd0;
+    }
+
+    @media (max-width: 800px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .card img {
+        height: 220px;
+      }
+
+      .article {
+        padding: 20px;
+      }
+
+      nav a {
+        padding: 13px 11px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <h1>🌴 The Bluffton Chronicle</h1>
-  <p>YOUR HOMETOWN. YOUR SPORTS. YOUR DAILY BUZZ.</p>
-</header>
+  <div class="topline">
+    <span>BLUFFTON, SOUTH CAROLINA</span>
+    <span>LOCAL NEWS · COMMUNITY · SPORTS</span>
+  </div>
 
-<nav>
-  <a href="#">Home</a>
-  <a href="#">Local News</a>
-  <a href="#">Sports</a>
-  <a href="#">Education</a>
-  <a href="#">Community</a>
-  <a href="#">About Us</a>
-</nav>
+  <header>
+    <h1>The Bluffton Chronicle</h1>
+    <p>THE LOWCOUNTRY'S COMMUNITY NEWSROOM</p>
+  </header>
 
-<div class="notice">
-  ⚠️ FICTIONAL NEWS PROJECT — THIS STORY IS MADE UP!
-</div>
+  <nav aria-label="Main navigation">
+    <a href="#">Home</a>
+    <a href="#">Local News</a>
+    <a href="#">Sports</a>
+    <a href="#">Schools</a>
+    <a href="#">Community</a>
+    <a href="#">About</a>
+  </nav>
 
-<main>
-  <section class="hero">
-    <img
-      src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=1400&q=85"
-      alt="Basketball court during a game">
+  <div class="ticker">
+    <strong>SPORTS DESK</strong>
+    Basketball, local athletes and stories from around the Lowcountry.
+  </div>
 
-    <div class="hero-text">
-      <span class="tag">🏀 Special Sports Edition</span>
+  <main>
 
-      <h2>Jared McCain Coming to Bluffton?!</h2>
+    <div class="layout">
 
-      <span class="label">FICTIONAL STORY • SATIRE</span>
+      <article class="article">
+        <div class="category">Basketball · Local Sports</div>
 
-      <p>
-        In a completely imaginary sports headline, Bluffton is
-        preparing for its biggest basketball surprise yet!
-        Our fictional newsroom explores what the town might look
-        like if basketball star Jared McCain came to visit.
-      </p>
+        <h2>Jared McCain Coming to Bluffton? Here's What Basketball Fans Are Imagining</h2>
 
-      <p>
-        Would local courts be packed? Would every kid want to
-        practice three-pointers? In this made-up scenario,
-        Bluffton basketball fever is officially at an all-time high!
-      </p>
+        <p class="dek">
+          The prospect of a basketball star appearing in the
+          Lowcountry has fans imagining a memorable day of
+          competition, shooting challenges and community excitement.
+        </p>
 
-      <p><strong>By The Bluffton Chronicle Staff</strong> · Fiction</p>
+        <div class="byline">
+          By The Bluffton Chronicle Sports Desk<br>
+          October 21, 2026 · 4 min read
+        </div>
 
-      <button onclick="showStory()">
-        Read the Full Story →
-      </button>
+        <img
+          class="hero-photo"
+          src="https://commons.wikimedia.org/wiki/Special:FilePath/Jared%20McCain%20Duke%20v.%20Michigan%20State.jpg?width=1200"
+          alt="Jared McCain playing basketball for Duke"
+          onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=1200&q=85';">
 
-      <p id="extraStory" hidden>
-        In our imaginary report, basketballs are bouncing across
-        town, neighborhood tournaments are filling up, and the
-        local scoreboard has run out of space for all the points.
-        No real visit or announcement has occurred. This story
-        was created for a school project.
-      </p>
+        <p class="credit">
+          Photo: Brady Saylor / Wikimedia Commons.
+          <a href="https://commons.wikimedia.org/wiki/File:Jared_McCain_Duke_v._Michigan_State.jpg">Image source</a>.
+          <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+        </p>
+
+        <div class="story">
+          <p>
+            BLUFFTON, S.C. — Basketball fans across the Lowcountry
+            can picture an exciting scene: a packed gym, a crowd
+            waiting for tipoff and young players eager to show
+            off their shooting skills.
+          </p>
+
+          <p>
+            Jared McCain, known for his shooting and energetic
+            presence on the court, is the subject of this imagined
+            local sports story. The idea of a visit has us thinking
+            about what a basketball event of that scale could mean
+            for young fans in Bluffton.
+          </p>
+
+          <h3>A Community United by Basketball</h3>
+
+          <p>
+            From neighborhood courts to school gyms, basketball
+            remains a popular way for young athletes to compete,
+            improve their skills and connect with teammates.
+            A special event could feature shooting contests,
+            friendly matchups and opportunities for local players
+            to celebrate the sport.
+          </p>
+
+          <p>
+            For aspiring athletes, seeing high-level basketball
+            can be a source of motivation. The excitement extends
+            beyond the scoreboard, bringing families, students
+            and fans together around a shared interest.
+          </p>
+
+          <h3>What Fans Would Want to See</h3>
+
+          <p>
+            A three-point challenge, a skills competition and
+            a community basketball game would all be natural
+            additions to a dream event. Local players could
+            put their practice to the test and fans could
+            enjoy an afternoon centered on the game.
+          </p>
+
+          <p>
+            For now, readers should treat the scenario as a
+            school-created news exercise, rather than a confirmed
+            appearance. No actual visit has been announced by
+            this publication.
+          </p>
+        </div>
+      </article>
+
+      <aside class="sidebar">
+        <h3>More Local Sports</h3>
+
+        <div class="side-story">
+          <span>BASKETBALL</span>
+          <h4>Five Skills Every Young Guard Can Practice</h4>
+          <p>
+            Ball handling, footwork, passing and consistent
+            shooting form are all part of building a strong game.
+          </p>
+        </div>
+
+        <div class="side-story">
+          <span>HIGH SCHOOL SPORTS</span>
+          <h4>Why Team Chemistry Matters</h4>
+          <p>
+            Communication and trust help teams turn individual
+            talent into a shared effort.
+          </p>
+        </div>
+
+        <div class="side-story">
+          <span>COMMUNITY</span>
+          <h4>The Courts That Bring Players Together</h4>
+          <p>
+            A look at the role that neighborhood recreation
+            plays in keeping young athletes active.
+          </p>
+        </div>
+
+        <div class="newsletter">
+          <h3>From the Sports Desk</h3>
+          <p>
+            Follow local basketball, school sports and
+            community stories from the Lowcountry.
+          </p>
+          <button type="button" onclick="alert('Thanks for visiting The Bluffton Chronicle!')">
+            Explore Sports
+          </button>
+        </div>
+      </aside>
+
     </div>
-  </section>
 
-  <section class="stories">
+    <section class="more-news">
+      <h2>More Headlines</h2>
 
-    <article class="card">
-      <img
-        src="https://images.unsplash.com/photo-1519861531473-9200262188bf?auto=format&fit=crop&w=700&q=80"
-        alt="Basketball on a court">
+      <div class="cards">
+        <article class="card">
+          <img
+            src="https://images.unsplash.com/photo-1519861531473-9200262188bf?auto=format&fit=crop&w=700&q=80"
+            alt="Basketball on a court">
 
-      <div>
-        <h3>Bluffton Basketball Fever</h3>
-        <p>
-          Our fictional reporters imagine a town where every
-          driveway becomes a basketball court.
-        </p>
-        <span class="label">MADE-UP NEWS</span>
+          <div>
+            <small>BASKETBALL</small>
+            <h3>Building Confidence at the Free-Throw Line</h3>
+            <p>
+              How practice, routine and focus can help players
+              improve their performance.
+            </p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img
+            src="https://images.unsplash.com/photo-1504450758481-7338eba7524a?auto=format&fit=crop&w=700&q=80"
+            alt="Indoor basketball arena">
+
+          <div>
+            <small>SPORTS CULTURE</small>
+            <h3>What Makes a Great Game-Day Atmosphere?</h3>
+            <p>
+              From the crowd to the team introductions,
+              little moments can make a game memorable.
+            </p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img
+            src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=700&q=80"
+            alt="Outdoor sports field">
+
+          <div>
+            <small>COMMUNITY</small>
+            <h3>Celebrating Local Student Athletes</h3>
+            <p>
+              Recognizing the commitment, teamwork and effort
+              that athletes bring to their sports.
+            </p>
+          </div>
+        </article>
       </div>
-    </article>
+    </section>
 
-    <article class="card">
-      <img
-        src="https://images.unsplash.com/photo-1504450758481-7338eba7524a?auto=format&fit=crop&w=700&q=80"
-        alt="Basketball arena">
+  </main>
 
-      <div>
-        <h3>The Imaginary Big Game</h3>
-        <p>
-          What if Bluffton hosted a legendary basketball event?
-          Our fictional preview imagines the excitement.
-        </p>
-        <span class="label">SATIRE</span>
-      </div>
-    </article>
+  <footer>
+    <h2>The Bluffton Chronicle</h2>
 
-    <article class="card">
-      <img
-        src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=700&q=80"
-        alt="Sports field">
+    <div>
+      <a href="#">Home</a>
+      <a href="#">News</a>
+      <a href="#">Sports</a>
+      <a href="#">Community</a>
+      <a href="#">Contact</a>
+      <a href="#">Privacy</a>
+    </div>
 
-      <div>
-        <h3>More Than Just Basketball</h3>
-        <p>
-          In our imaginary sports universe, every school sport
-          gets a championship parade through town.
-        </p>
-        <span class="label">FICTION</span>
-      </div>
-    </article>
+    <p>
+      Local stories. Community voices. Lowcountry life.
+    </p>
 
-  </section>
-</main>
+    <p class="project-note">
+      Student-created publication. The Jared McCain article is
+      an imagined scenario for an educational project and does
+      not announce a confirmed visit or event.
+    </p>
 
-<footer>
-  <h2>The Bluffton Chronicle</h2>
-  <p>
-    <a href="#">Home</a> |
-    <a href="#">Sports</a> |
-    <a href="#">Contact</a> |
-    <a href="#">Privacy</a>
-  </p>
-
-  <p>
-    This is a fictional student news website created for
-    educational purposes. The Jared McCain story is invented
-    and does not represent a real announcement or endorsement.
-  </p>
-
-  <p>© 2026 The Bluffton Chronicle · Fictional publication</p>
-</footer>
-
-<script>
-function showStory() {
-  const story = document.getElementById("extraStory");
-
-  story.hidden = !story.hidden;
-}
-</script>
+    <p>© 2026 The Bluffton Chronicle</p>
+  </footer>
 
 </body>
 </html>
